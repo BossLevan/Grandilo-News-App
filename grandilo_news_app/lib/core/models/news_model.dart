@@ -10,24 +10,27 @@ class News {
   String publishTime;
   String content;
 
-  News(
-      {this.title,
-      this.author,
-      this.content,
-      this.description,
-      this.imageUrl,
-      this.publishTime,
-      this.source,
-      this.url});
+  News({
+    this.title,
+    this.author,
+    this.content,
+    this.description,
+    this.imageUrl,
+    this.publishTime,
+    this.source,
+    this.url,
+  });
 
   factory News.fromJson(Map<String, dynamic> parsedJson) {
     return News(
-        source: Source.fromJson(parsedJson['source']),
-        author: parsedJson['author'],
-        description: parsedJson['description'],
-        url: parsedJson['url'],
-        imageUrl: parsedJson['urlToImage'],
-        publishTime: parsedJson['publishedAt'],
-        content: parsedJson['content']);
+      source: Source.fromJson(parsedJson['source']),
+      author: parsedJson['author'] as String,
+      description: parsedJson['description'] as String,
+      url: parsedJson['url'] as String,
+      imageUrl: parsedJson['urlToImage'] as String,
+      publishTime: parsedJson['publishedAt'] as String,
+      content: parsedJson['content'] as String,
+      title: parsedJson['title'] as String,
+    );
   }
 }

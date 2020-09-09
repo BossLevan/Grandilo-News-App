@@ -5,10 +5,13 @@ class NewsList {
 
   NewsList({this.news});
 
-  factory NewsList.fromJson(dynamic json) {
-    List<News> news = json.map((i) => News.fromJson(json)).toList();
+  factory NewsList.fromJson(Map<String, dynamic> json) {
+    var newss = json['articles'] as List;
+
+    List<News> newsList = newss.map((i) => News.fromJson(i)).toList();
+    // print(newsList[0].description);
     return NewsList(
-      news: news,
+      news: newsList,
     );
   }
 }
