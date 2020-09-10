@@ -11,6 +11,12 @@ class OnNewsTappedEvent extends HomescreenEvent {}
 
 class OnNavToHomeScreen extends HomescreenEvent {}
 
-class OnNavToDetailsScreen extends HomescreenEvent {}
+class OnNavToDetailsScreen extends HomescreenEvent {
+  final News news;
+  OnNavToDetailsScreen({this.news});
+
+  @override
+  List<Object> get props => [news];
+}
 
 class OnRefresh extends HomescreenEvent {}

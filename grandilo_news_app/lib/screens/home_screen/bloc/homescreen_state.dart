@@ -25,6 +25,12 @@ class HomescreenError extends HomescreenState {
 
 class HomescreenOnRefresh extends HomescreenState {}
 
-class NavToDetailsScreenComplete extends HomescreenState {}
+class NavToDetailsScreenComplete extends HomescreenState {
+  final News news;
+  NavToDetailsScreenComplete({this.news});
+
+  @override
+  List<Object> get props => [news];
+}
 
 class HomescreenOnBottomRefresh extends HomescreenState {}

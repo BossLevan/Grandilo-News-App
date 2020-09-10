@@ -29,7 +29,7 @@ class News {
       url: parsedJson['url'] as String,
       imageUrl: parsedJson['urlToImage'] as String,
       publishTime: parsedJson['publishedAt'] as String,
-      content: parsedJson['content'] as String,
+      content: parsedJson['content'],
       title: parsedJson['title'] as String,
     );
   }

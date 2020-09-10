@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:grandilo_news_app/core/models/news_list_model.dart';
+import 'package:grandilo_news_app/core/models/news_model.dart';
 import 'package:grandilo_news_app/core/repositories/news_repository.dart';
 import 'package:meta/meta.dart';
 
@@ -27,9 +28,9 @@ class HomescreenBloc extends Bloc<HomescreenEvent, HomescreenState> {
       } catch (e) {
         yield HomescreenError(message: e.toString());
       }
-      if (event is OnNavToDetailsScreen) {
-        yield NavToDetailsScreenComplete();
-      }
+    }
+    if (event is OnNavToDetailsScreen) {
+      yield NavToDetailsScreenComplete(news: event.news);
     }
   }
 }

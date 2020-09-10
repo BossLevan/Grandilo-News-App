@@ -15,9 +15,9 @@ class RouteGenerator {
       case RouteNames.logIn:
         return CustomSlideTransition(child: LogInScreen());
         break;
-      case RouteNames.newsDetailScreen:
-        return CustomSlideTransition(child: NewsDetailScreen());
-        break;
+      // case RouteNames.newsDetailScreen:
+      //   return CustomSlideTransition(child: NewsDetailScreen());
+      //   break;
       case RouteNames.signUp:
         return CustomSlideTransition(child: SignUpScreen());
         break;
