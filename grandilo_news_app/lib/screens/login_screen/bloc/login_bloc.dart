@@ -10,6 +10,7 @@ part 'login_event.dart';
 part 'login_state.dart';
 
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
+  //injecting an instance of user repository into the bloc
   final UserRepository userRepository;
 
   LoginBloc(this.userRepository) : super(LoginState.empty());
@@ -18,28 +19,12 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   Stream<LoginState> mapEventToState(
     LoginEvent event,
   ) async* {
-    if (event is EmailChanged) {
-      yield* _mapEmailChangedToState(event.email);
-    } else if (event is PasswordChanged) {
-      yield* _mapPasswordChangedToState(event.password);
-    } else if (event is Submitted) {
+    if (event is LoginSubmitted) {
       yield* _mapLoginWithCredentialsPressedToState(
         email: event.email,
         password: event.password,
       );
     }
-  }
-
-  Stream<LoginState> _mapEmailChangedToState(String email) async* {
-    yield state.update(
-      isEmailValid: Validators.isValidEmail(email),
-    );
-  }
-
-  Stream<LoginState> _mapPasswordChangedToState(String password) async* {
-    yield state.update(
-      isPasswordValid: Validators.isValidPassword(password),
-    );
   }
 
   Stream<LoginState> _mapLoginWithCredentialsPressedToState({

@@ -1,6 +1,8 @@
 part of 'login_bloc.dart';
 
 @immutable
+//custom class that allows me to create different login states
+//with different parameters.
 class LoginState {
   final bool isEmailValid;
   final bool isPasswordValid;
@@ -8,6 +10,7 @@ class LoginState {
   final bool isSuccess;
   final bool isFailure;
 
+  //to check whether details are correct
   bool get isFormValid => isEmailValid && isPasswordValid;
 
   LoginState({
@@ -18,6 +21,7 @@ class LoginState {
     @required this.isFailure,
   });
 
+  //factory constructor for empty state
   factory LoginState.empty() {
     return LoginState(
       isEmailValid: true,
@@ -28,6 +32,7 @@ class LoginState {
     );
   }
 
+  //factory constructor for loading state
   factory LoginState.loading() {
     return LoginState(
       isEmailValid: true,
@@ -38,6 +43,7 @@ class LoginState {
     );
   }
 
+  //factory constructor for failure state
   factory LoginState.failure() {
     return LoginState(
       isEmailValid: true,
@@ -48,6 +54,7 @@ class LoginState {
     );
   }
 
+  //factory constructor for successful state
   factory LoginState.success() {
     return LoginState(
       isEmailValid: true,
@@ -55,36 +62,6 @@ class LoginState {
       isSubmitting: false,
       isSuccess: true,
       isFailure: false,
-    );
-  }
-
-  LoginState update({
-    bool isEmailValid,
-    bool isPasswordValid,
-  }) {
-    return copyWith(
-      isEmailValid: isEmailValid,
-      isPasswordValid: isPasswordValid,
-      isSubmitting: false,
-      isSuccess: false,
-      isFailure: false,
-    );
-  }
-
-  LoginState copyWith({
-    bool isEmailValid,
-    bool isPasswordValid,
-    bool isSubmitEnabled,
-    bool isSubmitting,
-    bool isSuccess,
-    bool isFailure,
-  }) {
-    return LoginState(
-      isEmailValid: isEmailValid ?? this.isEmailValid,
-      isPasswordValid: isPasswordValid ?? this.isPasswordValid,
-      isSubmitting: isSubmitting ?? this.isSubmitting,
-      isSuccess: isSuccess ?? this.isSuccess,
-      isFailure: isFailure ?? this.isFailure,
     );
   }
 

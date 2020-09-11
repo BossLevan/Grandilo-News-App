@@ -7,6 +7,7 @@ abstract class DetailsEvent extends Equatable {
   List<Object> get props => [];
 }
 
+//event to trigger a loaded state
 class DetailsLoadedEvent extends DetailsEvent {
   final News news;
   DetailsLoadedEvent({this.news});
@@ -15,4 +16,5 @@ class DetailsLoadedEvent extends DetailsEvent {
   List<Object> get props => [news];
 }
 
+//event ot trigger error state
 class DetailsError extends DetailsEvent {}

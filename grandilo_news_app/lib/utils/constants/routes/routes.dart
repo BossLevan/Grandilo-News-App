@@ -13,7 +13,7 @@ class RouteNames {
 
   //Routes and their respective Pages.
   static Map<String, Widget Function(BuildContext)> routes = {
-    RouteNames.signUp: (context) => LogInScreen(),
+    RouteNames.signUp: (context) => LoginScreen(),
     RouteNames.logIn: (context) => SignUpScreen(),
     RouteNames.homeScreen: (context) => HomeScreen(),
     // RouteNames.newsDetailScreen: (context) => NewsDetailScreen(),

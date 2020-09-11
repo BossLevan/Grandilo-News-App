@@ -31,7 +31,7 @@ class SignupBloc extends Bloc<SignupEvent, SignupState> {
   }) async* {
     yield SignupState.loading();
     try {
-      await userRepository.signIn(email, password);
+      await userRepository.signUp(email, password);
       yield SignupState.success();
     } catch (_) {
       yield SignupState.failure();

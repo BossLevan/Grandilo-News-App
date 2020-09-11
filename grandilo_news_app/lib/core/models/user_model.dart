@@ -8,6 +8,8 @@ class User {
 
   User({this.isSignedIn, this.name, this.uid, this.email});
 
+  //static constructor to make it easier to access this
+  //methos without instatiationg this class
   static Future<User> parseFromFirebase(FirebaseAuth user) async {
     final currentUser = await user.currentUser();
     return user != null

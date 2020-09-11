@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+//custom class to enable cool transitions
 class CustomSlideTransition extends PageRouteBuilder {
   final Widget child;
   CustomSlideTransition({this.child})

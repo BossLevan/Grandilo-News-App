@@ -21,6 +21,8 @@ class News {
     this.url,
   });
 
+  //factory constructor to lazily create a new instance
+  //of the individual news
   factory News.fromJson(Map<String, dynamic> parsedJson) {
     return News(
       source: Source.fromJson(parsedJson['source']),

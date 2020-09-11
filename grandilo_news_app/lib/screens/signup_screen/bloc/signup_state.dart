@@ -23,6 +23,7 @@ class SignupState {
     @required this.isFailure,
   });
 
+//factory constructor for empty state
   factory SignupState.empty() {
     return SignupState(
       isEmailValid: true,
@@ -33,6 +34,7 @@ class SignupState {
     );
   }
 
+//factory constructor for loadingstate
   factory SignupState.loading() {
     return SignupState(
       isEmailValid: true,
@@ -43,6 +45,7 @@ class SignupState {
     );
   }
 
+//factory constructor for failure state
   factory SignupState.failure() {
     return SignupState(
       isEmailValid: true,
@@ -53,6 +56,7 @@ class SignupState {
     );
   }
 
+//factory constructor for success state
   factory SignupState.success() {
     return SignupState(
       isEmailValid: true,
@@ -62,11 +66,4 @@ class SignupState {
       isFailure: false,
     );
   }
-}
-
-class FocusState extends Signup {
-  final BuildContext context;
-  final FocusScopeNode node;
-
-  FocusState({this.context, this.node});
 }

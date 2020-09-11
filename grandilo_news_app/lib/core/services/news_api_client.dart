@@ -16,7 +16,8 @@ class NewsApiClient {
     try {
       final jsonResponse =
           await _httpClient.get('${baseUrl}country=$country&apiKey=$apiKey2');
-      //print(jsonResponse.body);
+
+      //check if the request was successful
       if (jsonResponse.statusCode == 200) {
         Map<String, dynamic> result = json.decode(jsonResponse.body);
 

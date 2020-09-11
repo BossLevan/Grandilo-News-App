@@ -22,8 +22,8 @@ class HomescreenBloc extends Bloc<HomescreenEvent, HomescreenState> {
     if (event is OnNavToHomeScreen) {
       yield HomescreenLoading();
       try {
+        //retrieving data from the repo
         final newsList = await newsRepository.getNewsList();
-        //print(newsList.news[0].imageUrl);
         yield HomescreenLoaded(newsList: newsList);
       } catch (e) {
         yield HomescreenError(message: e.toString());

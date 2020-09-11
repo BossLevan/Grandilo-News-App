@@ -1,9 +1,12 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:grandilo_news_app/core/models/user_model.dart';
 
+//class to deal with authentication
 class Auth {
   FirebaseAuth _firebaseAuth;
 
+  //if its not injected into the constructor, i create a new instance
+  //internally
   Auth({FirebaseAuth firebaseAuth})
       : _firebaseAuth = firebaseAuth ?? FirebaseAuth.instance;
 

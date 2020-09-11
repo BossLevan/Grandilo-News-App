@@ -3,11 +3,12 @@ part of 'login_bloc.dart';
 @immutable
 abstract class LoginEvent extends Equatable {}
 
-class Submitted extends LoginEvent {
+//Event when the log in button is pressed
+class LoginSubmitted extends LoginEvent {
   final String email;
   final String password;
 
-  Submitted({@required this.email, @required this.password});
+  LoginSubmitted({@required this.email, @required this.password});
 
   @override
   String toString() {
@@ -16,28 +17,4 @@ class Submitted extends LoginEvent {
 
   @override
   List<Object> get props => [email, password];
-}
-
-class EmailChanged extends LoginEvent {
-  final String email;
-
-  EmailChanged({@required this.email});
-
-  @override
-  String toString() => 'EmailChanged { email :$email }';
-
-  @override
-  List<Object> get props => [email];
-}
-
-class PasswordChanged extends LoginEvent {
-  final String password;
-
-  PasswordChanged({@required this.password});
-
-  @override
-  String toString() => 'PasswordChanged { password: $password }';
-
-  @override
-  List<Object> get props => throw [password];
 }

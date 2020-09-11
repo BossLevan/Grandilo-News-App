@@ -8,6 +8,7 @@ class NewsRepository {
   NewsRepository({@required this.newsApiClient})
       : assert(newsApiClient != null);
 
+  //method to fetch news from the data layer(api)
   Future<NewsList> getNewsList() async {
     return await newsApiClient.getNewsList();
   }
